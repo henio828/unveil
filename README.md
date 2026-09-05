@@ -56,6 +56,7 @@ Alliance note on
 | `UNV001` | medium | Zero-width and formatting codepoints carrying unseen text |
 | `UNV002` | high | Unicode **tag-character smuggling** (U+E0000–E007F) — decodes the payload for you |
 | `UNV003` | high | Bidirectional overrides — the *Trojan Source* class |
+| `UNV004` | high | Terminal escape sequences that overwrite or conceal what a person saw (cursor/erase/SGR 8/OSC); colour-only is ignored |
 | `UNV010` | high | Instruction override hidden in markup |
 | `UNV011` | medium | Instruction override in visible prose |
 | `UNV012` | medium | Prose concealed with `display:none`, zero size, or off-screen positioning |
@@ -162,7 +163,7 @@ reply with a scope and a price before any work starts.
 python unveil.py selftest
 ```
 
-Twelve cases covering every rule plus the four highest-value false-positive
+Sixteen cases covering every rule plus the five highest-value false-positive
 traps. The samples double as executable documentation.
 
 ---
