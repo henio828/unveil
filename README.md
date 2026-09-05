@@ -40,6 +40,13 @@ The pattern is now measured, not hypothetical:
 `unveil` does not stop an attack. It tells you the content you are about to
 feed an agent was written to manipulate one.
 
+Sources: the bounty sweep is
+[incubagent.com/research/agent-bounty-market](https://incubagent.com/research/agent-bounty-market/)
+(10 Aug 2026, n=529, 94.7% precision on a hand-labelled sample); the 78-study
+review and the Clinejection timeline are summarised in the Cloud Security
+Alliance note on
+[prompt injection in AI coding agents](https://labs.cloudsecurityalliance.org/research/csa-research-note-claude-code-github-action-prompt-injection/).
+
 ---
 
 ## What it looks for
