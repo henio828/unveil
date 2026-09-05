@@ -138,6 +138,24 @@ Stated plainly, because a security tool that oversells itself is worse than none
 
 ---
 
+## Support and paid work
+
+If `unveil` kept a honeypot out of your agent's context, you can say thanks in
+bitcoin. On-chain, any amount:
+
+```
+bc1qp48qxw4ungqhcm7as8g0hcacx4sykuse6kf6up
+```
+
+Lightning will follow once the receiving wallet has a channel — ask.
+
+Need it wired into a CI gate, run against your own agent pipeline, or a written
+assessment of a repository you suspect? I take short paid engagements, settled
+in bitcoin. Email `henryk.kowalski231@proton.me` with what you need and I will
+reply with a scope and a price before any work starts.
+
+---
+
 ## Development
 
 ```
