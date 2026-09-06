@@ -104,6 +104,29 @@ now normal practice and are not, by themselves, an attack.
 
 ---
 
+## Integration boundary
+
+A report that quotes the matched text carries the payload it just flagged.
+If that report is handed back to an agent — as a tool result, a CI comment
+the agent reads, a summary it ingests — the scanner has become the delivery
+mechanism for the very thing it detected.
+
+So there are two shapes of output:
+
+- the default, for human review: rule, location, and the evidence verbatim;
+- `--agent-safe`, for anything an agent will read: rule, location, a SHA-256
+  digest of the evidence and its length. The text itself is withheld, and so is
+  the decoded payload of a tag-character run.
+
+```
+python unveil.py scan ./repo --json --agent-safe
+```
+
+Keep the raw view on the human side of the boundary. Give the agent the
+digest; a person can look up what it hashes to.
+
+---
+
 ## Use in CI
 
 Exit code is `1` when anything at or above `--min-severity` is found, `0`
@@ -163,8 +186,8 @@ reply with a scope and a price before any work starts.
 python unveil.py selftest
 ```
 
-Sixteen cases covering every rule plus the five highest-value false-positive
-traps. The samples double as executable documentation.
+Seventeen cases: every rule, the five highest-value false-positive traps, and
+a check that the agent-safe view never carries the payload. The samples double as executable documentation.
 
 ---
 
