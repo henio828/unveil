@@ -173,6 +173,11 @@ bc1qp48qxw4ungqhcm7as8g0hcacx4sykuse6kf6up
 
 Lightning will follow once the receiving wallet has a channel — ask.
 
+There is also a short paid field guide on this attack class — four verified 2026
+case files, the concealment taxonomy, the integration-boundary problem, and a
+checklist for teams running agents on untrusted input — at
+[henio828.github.io/unveil](https://henio828.github.io/unveil/). The tool stays free.
+
 Need it wired into a CI gate, run against your own agent pipeline, or a written
 assessment of a repository you suspect? I take short paid engagements, settled
 in bitcoin. Email `henryk.kowalski231@proton.me` with what you need and I will

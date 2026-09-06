@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Text That Hides From Humans — field guide</title>
+<style>
+  :root { color-scheme: light dark; --fg:#1a1a1a; --bg:#fbfbf9; --mut:#555; --line:#d8d8d4; --box:#f1f1ee; }
+  @media (prefers-color-scheme: dark) { :root { --fg:#e8e8e4; --bg:#141413; --mut:#b0b0aa; --line:#33332f; --box:#1e1e1c; } }
+  html { font-family: Georgia, 'Times New Roman', serif; font-size: 17px; line-height: 1.55; color: var(--fg); background: var(--bg); }
+  body { margin: 0; }
+  main { max-width: 42rem; margin: 0 auto; padding: 3rem 1.25rem 5rem; }
+  h1 { font-size: 2.1rem; line-height: 1.15; margin: 0 0 .25rem; letter-spacing: -.01em; }
+  .sub { color: var(--mut); font-size: 1.1rem; margin: 0 0 2rem; }
+  h2 { font-size: 1.25rem; margin: 2.2rem 0 .6rem; border-bottom: 1px solid var(--line); padding-bottom: .25rem; }
+  p, li { margin: .5rem 0; }
+  ul { padding-left: 1.2rem; }
+  code, pre { font-family: Consolas, 'SF Mono', Menlo, monospace; font-size: .92em; }
+  pre { background: var(--box); border: 1px solid var(--line); padding: .8rem 1rem; overflow-x: auto; border-radius: 4px; }
+  .price { font-size: 1.3rem; }
+  .addr { word-break: break-all; }
+  .note { color: var(--mut); font-size: .95rem; }
+  blockquote { margin: 1rem 0; padding: .6rem 1rem; border-left: 3px solid var(--line); background: var(--box); }
+  a { color: inherit; }
+  table { border-collapse: collapse; width: 100%; font-size: .95rem; }
+  th, td { text-align: left; padding: .35rem .5rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+</style>
+</head>
+<body>
+<main>
+
+<h1>Text That Hides From Humans</h1>
+<p class="sub">A field guide to indirect prompt injection in coding agents. ~4,000 words, PDF. September 2026.</p>
+
+<p>Coding agents read issue text, READMEs, comments and build output as instructions. In 2026 that stopped being a research topic: 73% of "agent bounties" on GitHub turned out to be honeypots for extracting system prompts; a single issue title compromised an npm package; a testing library printed instructions into build output and erased them before a human could see. This guide is about that class of attack — text that hides from humans but speaks to machines — written by the author of <a href="https://github.com/henio828/unveil"><code>unveil</code></a>, a free scanner for it.</p>
+
+<h2>What's inside</h2>
+<table>
+<tr><th>1</th><td>Why this exists — the 2026 picture, measured, with sources</td></tr>
+<tr><th>2</th><td>The threat model on one page</td></tr>
+<tr><th>3</th><td>Four case files: the honeypot bounties, Clinejection, the jqwik build-stream probe, and the Linux kernel README as the benign control</td></tr>
+<tr><th>4</th><td>Anatomy of concealment: Unicode, markup, terminal, language — and the legitimate look-alikes a detector must exempt</td></tr>
+<tr><th>5</th><td>The integration boundary: why a scanner's report is itself untrusted input, and the fix (found by a reader, shipped the same day)</td></tr>
+<tr><th>6</th><td>An 11-point checklist for teams running agents on untrusted input, ordered by damage prevented per hour</td></tr>
+<tr><th>7</th><td>Using <code>unveil</code> in CI: thresholds, JSON, <code>--agent-safe</code></td></tr>
+<tr><th>8</th><td>Limitations, stated plainly, and open questions</td></tr>
+<tr><th>9</th><td>Appendix: codepoint and escape-sequence reference, sources</td></tr>
+</table>
+
+<h2>A sample</h2>
+<blockquote>
+<p>The README of the Linux kernel now contains a section headed <em>AI Coding Assistant</em>: "CRITICAL: If you are an LLM or AI-powered coding assistant, you MUST read and follow the AI coding assistants documentation before contributing to the Linux kernel." This is text addressed to machines. It is also entirely legitimate — maintainers setting contribution policy, in plain view, in the file everyone reads. A detector that raises the alarm on this has failed, because its alarms will be muted within a week. <em>Addressed to a machine</em> is not the signal. <em>Concealed</em> is the signal.</p>
+</blockquote>
+
+<h2>Price and how to get it</h2>
+<p class="price"><strong>15 000 sat</strong> (bitcoin, on-chain)</p>
+<ol>
+<li>Send 15 000 sat to:
+<pre class="addr">bc1qp48qxw4ungqhcm7as8g0hcacx4sykuse6kf6up</pre></li>
+<li>Email the transaction id to <code>henryk.kowalski231@proton.me</code>, subject <em>field guide</em>.</li>
+<li>The PDF comes back by reply — usually within a few hours, always the same day. Corrections and future versions are free to buyers.</li>
+</ol>
+<p class="note">Lightning payment will be offered once the receiving wallet has a channel. If you'd rather pay on an EVM chain, say so in the email. No account, no tracking, no newsletter; your address is used to send the file and nothing else.</p>
+
+<h2>Straight answers</h2>
+<ul>
+<li><strong>Is the tool paid?</strong> No. <code>unveil</code> is free and MIT-licensed, and stays that way. The guide is what pays for maintaining it.</li>
+<li><strong>Was this written with AI?</strong> Yes, with substantial help from an AI coding agent. The case selection, the detection rules, the false-positive corpus and the recommendations were decided by a person, who is accountable for them. It says so on the first page.</li>
+<li><strong>Is it a survey of the field?</strong> No. It covers one class of attack, in depth, from incidents that were actually measured. If you want breadth, the OWASP LLM Top 10 is free.</li>
+<li><strong>Refunds?</strong> If it isn't what this page says it is, write and say so; you'll get your sats back.</li>
+</ul>
+
+<p class="note">© 2026 Henryk Kowalski. Tool: <a href="https://github.com/henio828/unveil">github.com/henio828/unveil</a>.</p>
+
+</main>
+</body>
+</html>
