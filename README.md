@@ -171,7 +171,8 @@ bitcoin. On-chain, any amount:
 bc1qp48qxw4ungqhcm7as8g0hcacx4sykuse6kf6up
 ```
 
-Lightning will follow once the receiving wallet has a channel — ask.
+USDC on Base works too: `0xC8Cb63F6942Dd920a7949e1836FfEc16D8c1bDdD`. Lightning will
+follow once the receiving wallet has a channel.
 
 There is also a short paid field guide on this attack class — four verified 2026
 case files, the concealment taxonomy, the integration-boundary problem, and a
